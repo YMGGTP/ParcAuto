@@ -10,7 +10,6 @@ import com.vaadin.data.util.BeanItemContainer;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  *
  * @author user
@@ -74,26 +73,36 @@ public class Vehicule {
         return vehicules;
     }
 
-   
-          
-       public static BeanItemContainer<Vehicule> getVehiculesPrixBas() {
-           BeanItemContainer<Vehicule> lesVehiculesPrixBas = new BeanItemContainer<>(Vehicule.class);
-           
-           List<Vehicule> listeVehicule=(List<Vehicule>)vehicules.getItemIds() ;
-           
-           for(Vehicule unVehicule : listeVehicule) {
-           if (unVehicule.prix < 15000){
-               lesVehiculesPrixBas.addBean(unVehicule);
-           }}
-           return lesVehiculesPrixBas;
-           }
+    public static BeanItemContainer<Vehicule> getVehiculesPrixBas() {
+        BeanItemContainer<Vehicule> lesVehiculesPrixBas = new BeanItemContainer<>(Vehicule.class);
 
-    double getPrixMajore() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Vehicule> listeVehicule = (List<Vehicule>) vehicules.getItemIds();
+
+        for (Vehicule unVehicule : listeVehicule) {
+            if (unVehicule.prix < 15000) {
+                lesVehiculesPrixBas.addBean(unVehicule);
+            }
+        }
+        return lesVehiculesPrixBas;
     }
-       }
-    
 
+    public double getPrixMajore() {
+        double prixMajore = 0;
+        if ("Renault".equals(this.marque)) {
 
- 
-        
+            prixMajore = this.prix + (this.prix * 5 / 100);
+
+        } else if ("Peugeot".equals(this.marque)) {
+
+            prixMajore = this.prix + (this.prix * 10 / 100);
+
+        } else {
+
+            prixMajore = this.prix;
+
+        }
+
+        return prixMajore;
+    }
+
+}

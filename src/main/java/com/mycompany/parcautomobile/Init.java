@@ -20,7 +20,7 @@ import java.util.Date;
 
 /**
  *
- * @author CHATILLON
+ * @author Guillaume
  */
 public class Init {
     public XMLEncoder encoder = null;
@@ -43,13 +43,13 @@ public class Init {
         Vehicule vehicule4 = new Vehicule(4, "Test", "test", 18650);
         Vehicule vehicule5 = new Vehicule(5, "Test1", "test1", 20000);
         Vehicule vehicule6 = new Vehicule(6, "Test1", "test1", 8000);
-        Vehicule vehicule7 = new Vehicule(7, "Peugeot", "307", 10000);
-        Vehicule vehicule8 = new Vehicule(8, "Peugeot", "307", 10000);
         
 
     
         Visiteur visiteur2 = new Visiteur(2, "Guillaume", "Guigui", "Test");
        
+        Affectation affectation1 = new Affectation(2, "9");
+        Affectation affectation2 = new Affectation(2, "12/13/10");
    }
         
    

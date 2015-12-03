@@ -9,7 +9,6 @@ import com.vaadin.data.Container;
 import com.vaadin.data.util.BeanItemContainer;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -43,6 +42,15 @@ public class VehiculeTest {
     /**
      * Test of getlesVehiculesPrixBas method, of class Vehicule.
      */
+    @org.junit.Test
+    public void testGetlesVehiculesPrixBas() {
+        System.out.println("getlesVehiculesPrixBas");
+        Container.Indexed expResult = null;
+        Container.Indexed result = Vehicule.getlesVehiculesPrixBas();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
 
     /**
      * Test of getMarque method, of class Vehicule.
@@ -178,19 +186,4 @@ public class VehiculeTest {
         fail("The test case is a prototype.");
     }
     
-	@Test
-	public void testPrixMajore() {
-		
-		// initialisation de l'objet vehicule
-		Vehicule vehicule = new Vehicule();
-		// affectation du prix
-		vehicule.setPrix(10000.00);
-		vehicule.setMarque("Peugeot");
-		
-		// calcul du prix majoré
-		double prixMajore = vehicule.getPrixMajore();
-			
-		Assert.assertTrue(prixMajore == 11000.00);
-    
-}
 }

@@ -34,6 +34,7 @@ public class MyUI extends UI {
     private Grid contactList1 = new Grid();
     private Table contactTable = new Table();
     private Grid contactList2 = new Grid();
+    private Grid contactList3 = new Grid();
     @Override
     protected void init(VaadinRequest vaadinrequest) {
         configureComponents();  // configuration des composants
@@ -53,22 +54,23 @@ public class MyUI extends UI {
         contactList.setContainerDataSource(Vehicule.getVehicules());
         contactList1.setContainerDataSource(Vehicule.getVehiculesPrixBas());
         contactList2.setContainerDataSource(Visiteur.getVisiteur());
+        contactList3.setContainerDataSource(Affectation.getAffectation());
 
         //contactTable.setContainerDataSource(new BeanItemContainer<>( Vehicule.class));
         contactList.setColumnOrder("marque", "modele", "prix");  // choisir l'ordre des colonnes
         contactList.removeColumn("id"); 
         contactList1.setColumnOrder("marque", "modele", "prix");  // choisir l'ordre des colonnes
         contactList1.removeColumn("id"); // masquer la colonne
-        //  contactList.setSelectionMode(Grid.SelectionMode.SINGLE);
+        //contactList.setSelectionMode(Grid.SelectionMode.SINGLE);
        
         
         contactList2.setColumnOrder("id", "prenom", "nom", "marque");  // choisir l'ordre des colonnes
-
-        
+        contactList3.setColumnOrder("id", "dateAffection", "nom", "marque");
         
         contactList.setSizeFull();
         contactList1.setSizeFull();
         contactList2.setSizeFull();
+        contactList3.setSizeFull();
 
     }
 
@@ -84,6 +86,9 @@ public class MyUI extends UI {
         
          layout.addComponent(new Label(" Visiteurs"));
         layout.addComponent(contactList2);
+        
+         layout.addComponent(new Label("Date"));
+     layout.addComponent(contactList3);
         //layout.addComponent(contactTable);
         setContent(layout);  // affectation de la vue
     }
